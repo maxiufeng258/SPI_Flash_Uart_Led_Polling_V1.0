@@ -145,19 +145,31 @@ int main(void)
 	  if (fres == FR_OK)
 	  {
 		  printf("##################################\r\n");
-		  printf(" total capacity : %06u KiByte\r\n", total_byte[0]);
-		  printf(" free  capacity : %06u KiByte\r\n",  free_byte[0]);
+		  printf(" total capacity : %ld KiByte\r\n", total_byte[0]);
+		  printf(" free  capacity : %ld KiByte\r\n",  free_byte[0]);
 		  printf("##################################\r\n");
 
 		  TCHAR path[50] = "0:";
 		  fres = ff_scanDisk(path);
 		  if (fres == FR_OK)
 			  printf("scan flash disk end...\r\n");
+
+
 	  }
+
+
+	  fres = f_open(&fp, "0:/dataInfo/info.txt", FA_OPEN_ALWAYS|FA_READ|FA_WRITE);
+	  fres = f_lseek(&fp, 0);
+	  uint8_t buffer[200];
+	  UINT bw[1];
+	  fres = f_read(&fp, buffer, f_size(&fp), bw);
+	  fres = f_close(&fp);
 
 	  fres = f_mount(NULL, "0:", 1);
 	  if (fres == FR_OK)
+	  {
 		  printf("unmount passed...\r\n");
+	  }
 	  else {
 		printf("unmount failed...\r\n");
 	}
