@@ -1,0 +1,2 @@
+file_handling.c:18:9:ff_getCapacity	64	static
+file_handling.c:55:9:ff_scanDisk	72	static
