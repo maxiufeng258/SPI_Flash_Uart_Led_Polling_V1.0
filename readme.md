@@ -1,6 +1,6 @@
 # 1.Functional description [W25Qxxx.c/h]
 
-W25Qxxx spi flash HAL library driver, including basic information acquisition and function implementation required by FATFs file system diskio.c.
+W25Qxxx spi flash HAL library driver, including basic information acquisition and function implementation required by FATFs file system diskio.c.      **use stm32f429igt6**
 
 **Applicable to the following models of flash memory.**
 
